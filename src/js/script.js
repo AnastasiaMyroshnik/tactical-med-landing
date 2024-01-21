@@ -71,6 +71,124 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
     
+    const openPopup = (btnSelector, overlaySelector, popupSelector, closeSelector, phoneInputSelector, nameInputSelector, telegramInputSelector, thanksPopupSelector, errorPopupSelector) => {
+        const bodyElement = document.querySelector('body');
+        const triggerBtn = document.querySelector(btnSelector);
+        const overlay = document.querySelector(overlaySelector);
+        const popupWindow = document.querySelector(popupSelector);
+        const closeBtn = document.querySelector(closeSelector);
+        const thanksPopup = document.querySelector(thanksPopupSelector);
+        const errorPopup = document.querySelector(errorPopupSelector);
+
+        const sendBtn = document.querySelector('.popup__form-btn');
+
+        phoneNumMask(phoneInputSelector);
+        checkNameInputs(nameInputSelector);
+        checkTelegramInputs(telegramInputSelector);
+
+        triggerBtn.addEventListener('click', () => {
+            bodyElement.classList.add('noscroll');
+            overlay.style.display = 'block';
+            popupWindow.style.display = 'block';
+            closeBtn.addEventListener('click', () => {
+                closePopup(popupWindow)
+            });
+            overlay.addEventListener('click', (event) => {
+                if (event.target == overlay) {
+                    closePopup(popupWindow);
+                }
+            });
+        })
+
+        const closePopup = (popupElem) => {
+            bodyElement.classList.remove('noscroll');
+            overlay.style.display = 'none';
+            popupElem.style.display = 'none';
+        }
+
+        const showThanksPopup = (popup) => {
+            popupWindow.style.display = 'none';
+            popup.style.display = 'block';
+            setTimeout(() => {
+                closePopup(thanksPopup)
+            }, 5000)
+        }
+
+        const showErrorPopup = (popup) => {
+            popupWindow.style.display = 'none';
+            popup.style.display = 'block';
+            setTimeout(() => {
+                closePopup(popup)
+            }, 5000)
+        }
+
+        function phoneNumMask(selector) {
+            let setCursorPosition = (pos, elem) => {
+                elem.focus();
+            
+                if (elem.setSelectionRange) {
+                  elem.setSelectionRange(pos, pos);
+                } else if (elem.createTextRange){
+                  let range = elem.createTextRange();
+            
+                  range.collapse(true);
+                  range.moveStart('character', pos);
+                  range.moveEnd('character', pos);
+                  range.select();
+                }
+              };
+            
+              function createMask(event) {
+                let matrix = '+38 (0__) ___ __ __';
+                let i = 0;
+                let def = matrix.replace(/\D/g, '');
+                let val = this.value.replace(/\D/g, '');
+            
+                if (def.length >= val.length) {
+                  val = def;
+                }
+            
+                this.value = matrix.replace(/./g, function (a) {
+                  return /[_\d]/.test(a) && i < val.length ? val.charAt(i++) : i >= val.length ? '' : a;
+                });
+            
+                if (event.type === 'blur') {
+                  if (this.value.length == 2) {
+                    this.value = '';
+                  }
+                } else {
+                  setCursorPosition(this.value.length, this);
+                }
+              }
+            
+              let input = document.querySelector(selector);
+            
+                input.addEventListener('input', createMask);
+                input.addEventListener('keypress', createMask);
+                input.addEventListener('focus', createMask);
+                input.addEventListener('blur', createMask);
+        }
+        function checkNameInputs(selector) {
+            const txtInputs = document.querySelectorAll(selector);
+            txtInputs.forEach(input => {
+                input.addEventListener('input', function () {
+                  input.value = input.value.replace(/[^а-яёіїы ]/ig, '');
+                })
+              });
+        }
+        function checkTelegramInputs(selector) {
+            const txtInputs = document.querySelectorAll(selector);
+            txtInputs.forEach(input => {
+                input.addEventListener('input', function () {
+                  input.value = input.value.replace(/[а-яёіїы]/ig, '');
+                })
+              });
+        }
+    }
+
+
+
     scrolling('.pageup-arrow');
     burger('.burger', '.burger-elem', '.header__menu-mobile', '.header__menu-link');
+    openPopup('[data-openForm]', '.overlay', '#registration', '.popup__close', '[name="phone"]', '[name="name"]', '[name="telegram"]', '#thanks', '#error');
 })

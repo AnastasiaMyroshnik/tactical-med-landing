@@ -105,7 +105,7 @@
                     Практично-теоретичний тренінг з надання домедичної допомоги, в якому практики більше ніж теорії. Курс розрахований на 12 годин, які розділені на два навчальних заняття по 6 годин.
                 </div>
                 <div class="banner__buttons">
-                    <button class="btn">Зареєструватись на курс</button>
+                    <button class="btn" data-openForm>Зареєструватись на курс</button>
                 </div>
             </div>
         </section>
@@ -183,6 +183,47 @@
         <a href="#up" class="pageup-arrow">
             <img src="icons/arrow.svg" alt="arrow" class="up-img">
         </a>
+    </div>
+    <div class="overlay">
+        <div class="popup" id="registration">
+            <div class="popup__close">&times;</div>
+            <div class="popup__title title">
+              Реєстрація на курс
+            </div>
+            <div class="popup__subtitle">
+              Тактична медицина за алгоритмом MARCH
+            </div>
+            <form class="popup__form" action="#">
+              <input  class="popup__form-input"  name="name" placeholder="Прізвище та імʼя" type="text" required>
+              <input  class="popup__form-input"  name="phone" placeholder="Телефон" type="tel" required>
+              <input  class="popup__form-input"  name="telegram" placeholder="Нік telegram" type="text">
+              <div class="checbox__wrapper">
+                  <input type="checkbox" name="accept" id="checbox" checked class="popup__form-checkbox" required>
+                  <label for="checbox">Даю згоду на обробку персональних даних та приймаю правила та умови участі, договір публічної оферти</label>
+              </div>
+              <button class="btn popup__form-btn">Відправити заяку</button>
+            </form>
+          </div>
+
+          <div class="popup" id="thanks">
+            <!-- <div class="popup__close">&times;</div> -->
+            <div class="popup__title title">
+              Дякуємо за вашу заявку!
+            </div>
+            <div class="popup__subtitle">
+              Ми звʼяжемось з вами найближчим часом
+            </div>
+          </div>
+
+          <div class="popup" id="error">
+            <!-- <div class="popup__close">&times;</div> -->
+            <div class="popup__title title">
+              Сталась помилка під час відправки даних
+            </div>
+            <div class="popup__subtitle">
+              Звʼяжіться, будь ласка, з нами будь-яким зручним для вас способом
+            </div>
+          </div>
     </div>
     <footer class="footer">
         <div class="container">

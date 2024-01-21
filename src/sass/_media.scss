@@ -50,6 +50,12 @@
     }
 }
 
+@media (max-width: 729px) {
+ .popup {
+    width: 80%;
+ }
+}
+
 @media (max-width: 600px) {
     section {
         margin-top: 30px;

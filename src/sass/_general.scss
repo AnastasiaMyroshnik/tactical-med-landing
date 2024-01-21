@@ -106,6 +106,9 @@
     border: none;
     border-radius: 15px;
     transition: all .3s;
+    &:focus {
+        outline: 1px solid $main-color;
+    }
     &:hover {
         transform: scale(1.1);
     }
@@ -275,6 +278,78 @@
         &::before,
         &::after {
             background-color:#fff;
+        }
+    }
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+#registration, #thanks, #error {
+    display: none;
+}
+
+.popup {
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    &__close {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        color: $main-color;
+        font-size: 40px;
+        cursor: pointer;
+    }
+    &__title {
+        display: block;
+        text-align: center;
+        border-bottom: none;
+        &:hover {
+            border-bottom: none; 
+        }
+    }
+    &__subtitle {
+        margin-top: -6px;
+        display: block;
+        text-align: center;
+        font-size: 16px;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &-input {
+            margin-top: 19px;
+            display: block;
+            width: 88%;
+            &:focus {
+                outline: 1px solid transparent;
+            }
+        }
+        &-checkbox {
+            display: inline;
+        }
+        label {
+            font-size: 12px;
+            line-height: 1.1em;
+            display: inline;
+        }
+        .checbox__wrapper {
+            margin-top: 5px;
+            width: 88%;
+        }
+        .btn {
+            margin-top: 19px;
         }
     }
 }
