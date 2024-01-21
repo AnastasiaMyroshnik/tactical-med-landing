@@ -1,0 +1,17 @@
+$main-color: #ed4646;
+
+@import '_bootstrap-reboot.min.scss';
+@import '_animate.scss';
+@import '_general.scss';
+@import '_media.scss';
+
+* {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+}
+
+section {
+    margin-top: 50px;
+}

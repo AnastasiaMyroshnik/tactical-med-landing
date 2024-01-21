@@ -1,0 +1,232 @@
+@media (max-width: 1200px) {
+    .container {
+        width: 900px;
+    }
+    .banner {
+        &__img-block {
+            background-image: linear-gradient(49deg,#ed4646 37%,#FFFFFF 48%);
+        }
+        &__descr-text {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    * {
+        font-size: 14px;
+    }
+    .container {
+        width: 650px;
+    }
+    .header-top {
+        &__contacts {
+            padding: 10px 0;
+        }
+        &__inner {
+            a {
+                padding-left: 0;
+                display: block;
+            }
+        }
+    }
+
+    .banner {
+        display: block;
+        &__img-wrapper, &__descr {
+            width: 100%;
+        }
+        &__descr {
+            text-align: center;
+        }
+    }
+    .info__item {
+        padding: 25px;
+    }
+    .about-course {
+        p, li {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    section {
+        margin-top: 30px;
+    }
+    .container {
+        width: 450px;
+    }
+    .title {
+        font-size: 20px;
+    }
+    .title--cross::before,
+    .title--cross::after {
+        height: 8px;
+        width: 23px;
+        left: -33px;
+    }
+    .banner__descr {
+        .subtitle {
+            top: -5px;
+            font-size: 17px;
+        }
+        span {
+            bottom: -5px;
+        }
+    }
+    .info__wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info__item {
+        width: 75%;
+        margin-top: 15px;
+    }
+    .info__item:first-child {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 460px) {
+    .container {
+        width: 350px;
+    }
+    .header {
+        .container {
+            margin: 0;
+            width: 100%;
+        }
+    }
+    .header__wrapper {
+        margin: 0 auto;
+        width: 350px;
+    }
+   .burger {
+        display: block;
+        position: absolute;
+        right: 0;
+   }
+   .burger-elem {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 4px;
+        width: 26px;
+        background-color:#000; 
+        transition: all .5s;
+   }
+   .burger-elem:last-child {
+        top: 8px;
+   }   
+   .burger-elem--transformed:first-child {
+        transform: rotate(45deg) translateY(6px);
+   }
+   .burger-elem--transformed:last-child {
+        transform: rotate(-45deg) translateY(-5px);
+   }
+   .header-top__contacts {
+        display: none;
+   }
+
+   .header__menu {
+        display: none;
+   }
+
+   .header__menu-mobile {
+        padding: 30px 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: absolute;
+        /* height: 100vh; */
+        height: calc(100vh - 50px);
+        width: 100vw;
+        left: -100%;
+        top: 50px;
+        background-color: rgba(0, 0, 0, .9);
+        transition: all .5s;
+        z-index: 10;
+    }
+
+    .header-mobile__contacts {
+        a {
+            margin-bottom: 10px;
+            display: block;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+        }
+        a:last-child {
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+    }
+
+    .burger__menu--active {
+        transform: translateX(100%);
+    }
+
+   .header__menu-list {
+        display: block;
+        li {
+            padding: 0;
+            margin-top: 15px;
+        }
+        li:first-child {
+            margin-top: 0;
+        }
+   }
+
+   .header__menu-link {
+        color: #fff;
+        font-size: 18px;
+   }
+
+   .header__wrapper {
+        height: 50px;
+        position: relative;
+   }
+
+   .header__menu-title {
+        padding-top: 5px;
+        position: absolute;
+        left: 34px;
+        top: 0;
+        font-size: 26px;
+   }
+    .title--cross::before,
+    .title--cross::after {
+        top: 55%;
+    }
+    .footer__wrapper, .footer__inner-items {
+        justify-content: center;
+    }
+    .footer__title {
+        display: none;
+    }
+    .footer__item-phone {
+        margin-top: 5px;
+    }
+    .pageup-arrow {
+        right: 10px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        width: 250px;
+    }
+    .header__wrapper {
+        width: 250px;
+    }
+    .header__menu-title {
+        left: 8px;
+        top: 3px;
+        font-size: 22px;
+    }
+    .burger-elem {
+        right: -20px;
+    }
+}
