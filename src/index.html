@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tactical Med</title>
+    <!-- <title>Tactical Med</title> -->
     <link rel="apple-touch-icon" sizes="57x57" href="/icons/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/icons/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/icons/faviconiapple-touch-icon" sizes="76x76" href="/icons/favicon/apple-icon-76x76.png">
@@ -31,7 +31,7 @@
     <meta property="twitter:description" content="Треніг з тактичної медицини за протоколом TCCC" />
     <meta property="twitter:image" content="https://metatags.io/images/meta-tags.png" />
     <meta name="googlebot" content="notranslate">
-    <meta name="robots" content="noindex,nofollow">
+    <meta name="robots" content="all">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/icons/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -193,13 +193,13 @@
             <div class="popup__subtitle">
               Тактична медицина за алгоритмом MARCH
             </div>
-            <form class="popup__form" action="#">
+            <form class="popup__form" METHOD="GET" action="/handleForm" >
               <input  class="popup__form-input"  name="name" placeholder="Прізвище та імʼя" type="text" required>
               <input  class="popup__form-input"  name="phone" placeholder="Телефон" type="tel" required>
               <input  class="popup__form-input"  name="telegram" placeholder="Нік telegram" type="text">
               <div class="checbox__wrapper">
                   <input type="checkbox" name="accept" id="checbox" checked class="popup__form-checkbox" required>
-                  <label for="checbox">Даю згоду на обробку персональних даних та приймаю правила та умови участі, договір публічної оферти</label>
+                  <label for="checbox">Даю згоду на обробку персональних даних</label>
               </div>
               <button class="btn popup__form-btn">Відправити заяку</button>
             </form>
@@ -256,6 +256,9 @@
             <div class="footer__inner">
                 <div class="title footer__title title--cross">
                     Tactical Medicine
+                </div>
+                <div>
+                    <a class="privacy-link" href="privacy.html" target="_blank">Політика конфіденційності</a>
                 </div>
             </div>
            </div>

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "gulp && node.server.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +21,10 @@
     "sass": "^1.56.2"
   },
   "dependencies": {
-    "gulp-rename": "^2.0.0"
+    "dotenv": "^16.3.2",
+    "express": "^4.18.2",
+    "gulp-rename": "^2.0.0",
+    "server": "^1.0.38",
+    "telegraf": "^4.15.3"
   }
 }

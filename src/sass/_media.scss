@@ -205,6 +205,14 @@
     .title--cross::after {
         top: 55%;
     }
+    .footer {
+        &__wrapper {
+            min-height: 160px;
+            .privacy-link {
+                min-width: 160px;
+            }
+        }
+    }
     .footer__wrapper, .footer__inner-items {
         justify-content: center;
     }
