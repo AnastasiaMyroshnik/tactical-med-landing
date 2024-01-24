@@ -106,21 +106,38 @@ document.addEventListener("DOMContentLoaded", () => {
             popupElem.style.display = 'none';
         }
 
-        const showThanksPopup = (popup) => {
+        const showThanksPopup = (popup, popupWindow) => {
+            console.log(popupWindow)
             popupWindow.style.display = 'none';
+            console.log(popup);
             popup.style.display = 'block';
             setTimeout(() => {
                 closePopup(thanksPopup)
             }, 5000)
         }
 
-        const showErrorPopup = (popup) => {
+        const showErrorPopup = (popup, popupWindow) => {
             popupWindow.style.display = 'none';
             popup.style.display = 'block';
             setTimeout(() => {
                 closePopup(popup)
             }, 5000)
         }
+
+        sendBtn.addEventListener('click', async (event) => {
+            event.preventDefault();
+
+            try {
+                const result = await fetch('/handleForm?' + new URLSearchParams({
+                    name: nameInputSelector,
+                    phone: phoneInputSelector,
+                    telegram: telegramInputSelector
+                }))
+                result.status === 200 ? showThanksPopup(thanksPopup, popupWindow) : showErrorPopup(errorPopup, popupWindow);
+            } catch (error) {
+                showErrorPopup(errorPopup, popupWindow);
+            }
+        })
 
         function phoneNumMask(selector) {
             let setCursorPosition = (pos, elem) => {
