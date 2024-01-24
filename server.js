@@ -16,9 +16,9 @@ app.use(express.static(DIST_DIR));
 app.get('/handleForm', (req, res) => {
   try {
     const message = '🤩 Нова заявка на курс!\n\n'
-      + `Ім\'я: ${req.query.name}\n`
-      + `Телефон: ${req.query.phone}\n`
-      + `Телеграм: ${req.query.telegram}\n`;
+      + `Ім\'я: ${req.query.name || '-'}\n`
+      + `Телефон: ${req.query.phone || '-'}\n`
+      + `Телеграм: ${req.query.telegram || '-'}\n`;
     bot.telegram.sendMessage(987200314, message);
     res.status(200).send('Ok');
   } catch(error) {

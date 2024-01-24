@@ -107,9 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const showThanksPopup = (popup, popupWindow) => {
-            console.log(popupWindow)
             popupWindow.style.display = 'none';
-            console.log(popup);
             popup.style.display = 'block';
             setTimeout(() => {
                 closePopup(thanksPopup)
@@ -126,12 +124,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         sendBtn.addEventListener('click', async (event) => {
             event.preventDefault();
-
             try {
                 const result = await fetch('/handleForm?' + new URLSearchParams({
-                    name: nameInputSelector,
-                    phone: phoneInputSelector,
-                    telegram: telegramInputSelector
+                    name: document.querySelector(nameInputSelector).value,
+                    phone: document.querySelector(phoneInputSelector).value,
+                    telegram: document.querySelector(telegramInputSelector).value
                 }))
                 result.status === 200 ? showThanksPopup(thanksPopup, popupWindow) : showErrorPopup(errorPopup, popupWindow);
             } catch (error) {
