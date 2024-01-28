@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const txtInputs = document.querySelectorAll(selector);
             txtInputs.forEach(input => {
                 input.addEventListener('input', function () {
-                  input.value = input.value.replace(/[^а-яёіїы ]/ig, '');
+                  input.value = input.value.replace(/[^а-яёіїыєґ ]/ig, '');
                 })
               });
         }
@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const txtInputs = document.querySelectorAll(selector);
             txtInputs.forEach(input => {
                 input.addEventListener('input', function () {
-                  input.value = input.value.replace(/[а-яёіїы]/ig, '');
+                  input.value = input.value.replace(/[а-яёіїыєґ]/ig, '');
                 })
               });
         }
